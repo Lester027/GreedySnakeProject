@@ -1,0 +1,2 @@
+# GreedySnakeProject
+Demo for Git
