@@ -4,7 +4,7 @@ package com.cs3343_Group16.greedySnake.system;
 public class SConstant {
 	// background variable setting
 	public final static int SC_JFRAME_BOUNDS_WIDTH = 1320;
-	public final static int SC_JFRAME_BOUNDS_HEIGHT = 800;
+	public final static int SC_JFRAME_BOUNDS_HEIGHT = 825;
 	public final static int SC_JFRAME_BOUNDS_LENGTH = 10;
 	public final static boolean SC_JFRAME_NOREIZEABLE = false;
 	public final static boolean SC_JFARME_VISIBLE = true;
@@ -50,15 +50,22 @@ public class SConstant {
 	public final static int SC_COORDINATE_YPOS_KEY = 1;
 	public final static int SC_INIT_COORDINATE_VALUE = -1;
 
-	// Score Bean settings
+	// Common Bean settings
 	public final static int SC_BEAN_XPOS_POSSIBLE_AMOUNT = 64;
 	public final static int SC_BEAN_YPOS_POSSIBLE_AMOUNT = 35;
+	public final static int SC_DEFAULT_BEAN_SCORE = 1;
+	public final static int SC_SCORE_BEAN_SCORE = 3;
+	public final static int SC_DEATH_BEAN_SCORE = -5;
+	
+	//Score Bean Settings
+	public final static int SC_SCORE_BEAN_DEFAULT_APPEAR_TIME = 300;
+	public final static int SC_SCORE_BEAN_DEFAULT_DISAPPEAR_TIME = 50;
 
 	// Snake Setting
 	public final static int SC_INIT_SNAKE_LENGTH = 3;
 	public final static int SC_INIT_SNAKE_HEAD_XPOS = 60;
 	public final static int SC_INIT_SNAKE_HEAD_YPOS = 80;
-	public final static int SC_SNAKE_AVAIL_MAX_XPOS = 1260;
+	public final static int SC_SNAKE_AVAIL_MAX_XPOS = 1280;
 	public final static int SC_SNAKE_AVAIL_MAX_YPOS = 760;
 	public final static String SC_SNAKE_MOVE_DIRECTION_DEFAULT_FLAG = "Rightward";
 	public final static String SC_SNAKE_MOVE_DIRECTION_DOWN_FLAG = "Downward";

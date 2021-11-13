@@ -15,7 +15,6 @@ public class DisplayGameOver implements Display {
 		gameOver(graphic);
 		gameRestartAssist(graphic);
 		gameStartAssist2(graphic);
-		Game.reinit();
 	}
 	
 

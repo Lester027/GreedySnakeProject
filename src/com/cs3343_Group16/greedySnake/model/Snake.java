@@ -3,6 +3,8 @@ package com.cs3343_Group16.greedySnake.model;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.util.ArrayList;
+import java.util.Arrays;
+
 import com.cs3343_Group16.greedySnake.system.SConstant;
 
 public class Snake extends Game {
@@ -23,11 +25,11 @@ public class Snake extends Game {
 		initCoordinate();
 		initSnake();
 	}
-	
+
 	@SuppressWarnings("unchecked")
 	private void initCoordinate() {
 		this.coordinate = new ArrayList<ArrayList<Integer>>();
-		ArrayList<Integer> temp= new ArrayList<Integer> ();
+		ArrayList<Integer> temp = new ArrayList<Integer>();
 		temp.add(SConstant.SC_INIT_COORDINATE_VALUE);
 		temp.add(SConstant.SC_INIT_COORDINATE_VALUE);
 		for (int i = 0; i < SConstant.SC_INIT_MAX_AVAIL_COORDINATE_AMOUNT; i++) {
@@ -84,7 +86,6 @@ public class Snake extends Game {
 
 	private void death() {
 		this.direction = SConstant.SC_SNAKE_MOVE_DIRECTION_DEATH_FLAG;
-		initial();
 	}
 
 	public boolean selfDeathDetection() {
@@ -103,6 +104,13 @@ public class Snake extends Game {
 //			}
 //		}
 //		return false;
+	}
+
+	public boolean selfForeignalItemDetection(int fiXPos, int fiYPos) {
+		if (coordinate.contains(new ArrayList<Integer>(Arrays.asList(fiXPos, fiYPos)))) {
+			return true;
+		}
+		return false;
 	}
 
 	public int getHeadXPos() {
@@ -127,8 +135,8 @@ public class Snake extends Game {
 		return score;
 	}
 
-	public void updateScore() {
-		this.score++;
+	public void updateScore(int point) {
+		this.score += point;
 	}
 
 	public int getLength() {

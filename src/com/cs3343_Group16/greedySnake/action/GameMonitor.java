@@ -23,6 +23,7 @@ public class GameMonitor {
 	public static boolean DeathDetection(Game game, Graphics graphic) {
 		if(game.getSnake().selfDeathDetection()) {
 			new DisplayGameOver().display(graphic);
+			game.reinit();
 			return true;
 		}
 		return false;
@@ -30,10 +31,11 @@ public class GameMonitor {
 	
 	public static void ScoreDetection(Game game) {
 		if(game.getBean().getBeanXPos() == game.getSnake().getHeadXPos() 
-				&& game.getBean().getBeanYpos() == game.getSnake().getHeadYpos()) {
-			game.getSnake().updateScore();
+				&& game.getBean().getBeanYPos() == game.getSnake().getHeadYpos()) {
+			game.getSnake().updateScore(game.getBean().getBeanScore());
 			game.getSnake().updateLength();
 			game.getBean().refreshPos();
 		}
 	}
+	
 }
