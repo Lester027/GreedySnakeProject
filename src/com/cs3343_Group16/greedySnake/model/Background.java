@@ -45,7 +45,7 @@ public class Background extends Game{
 		
 		//draw background 
 		gameGround.setColor(Color.WHITE);
-		gameGround.fillRect(SConstant.SC_GAMEBODY_BACKGROUND_BEGIN_XPOS, SConstant.SC_GAMEBODY_BACKGROUND_BEGIN_YPOS, SConstant.SC_GAMEBODY_BAKCGOURND_WIDTH, SConstant.SC_GAMEBODY_BACKGOURND_HEIGHT);
+		gameGround.fillRect(SConstant.SC_GAMEBODY_BACKGROUND_BEGIN_XPOS, SConstant.SC_GAMEBODY_BACKGROUND_BEGIN_YPOS, SConstant.SC_GAMEBODY_BACKGROUND_WIDTH, SConstant.SC_GAMEBODY_BACKGROUND_HEIGHT);
 		
 		//draw game information
 		snake = Snake.getInstance();

@@ -4,7 +4,7 @@ package com.cs3343_Group16.greedySnake.system;
 public class SConstant {
 	// background variable setting
 	public final static int SC_JFRAME_BOUNDS_WIDTH = 1320;
-	public final static int SC_JFRAME_BOUNDS_HEIGHT = 900;
+	public final static int SC_JFRAME_BOUNDS_HEIGHT = 800;
 	public final static int SC_JFRAME_BOUNDS_LENGTH = 10;
 	public final static boolean SC_JFRAME_NOREIZEABLE = false;
 	public final static boolean SC_JFARME_VISIBLE = true;
@@ -26,12 +26,11 @@ public class SConstant {
 	public final static int SC_GAMEBODY_BORDER_BEGIN_XPOS = 19;
 	public final static int SC_GAMEBODY_BORDER_BEGIN_YPOS = 79;
 	public final static int SC_GAMEBODY_BORDER_WIDTH = 1282;
-	public final static int SC_GAMEBODY_BORDER_HEIGHT = 802;
+	public final static int SC_GAMEBODY_BORDER_HEIGHT = 702;
 	public final static int SC_GAMEBODY_BACKGROUND_BEGIN_XPOS = 20;
 	public final static int SC_GAMEBODY_BACKGROUND_BEGIN_YPOS = 80;
-	public final static int SC_GAMEBODY_BAKCGOURND_WIDTH = 1280;
-	public final static int SC_GAMEBODY_BACKGOURND_HEIGHT = 800;
-	public final static int SC_GAMEBODY_BACKGOURND_BOTTOM_YPOS = 880;
+	public final static int SC_GAMEBODY_BACKGROUND_WIDTH = 1280;
+	public final static int SC_GAMEBODY_BACKGROUND_HEIGHT = 700;
 
 	// game information setting
 	public final static int SC_SCORE_BEGIN_XPOS = 1075;
@@ -43,19 +42,24 @@ public class SConstant {
 	public final static String SC_FONT_THEME = "Lucida Handwriting";
 	public final static int SC_DEFAULT_FONT_SIZE = 16;
 
-	// Score Bean & Snake common setting
+	// Bean & Snake common setting
 	public final static int SC_DEFAULT_NODE_SIZE = 20;
-	public final static String SC_COORDINATE_KEY_XPOS = "xPos";
-	public final static String SC_COORDINATE_KEY_YPOS = "yPos";
+	public final static int SC_INIT_MAX_AVAIL_COORDINATE_AMOUNT = 2500;
+	public final static int SC_INIT_COORDINATE_CAPACITY = 2;
+	public final static int SC_COORDINATE_XPOS_KEY = 0;
+	public final static int SC_COORDINATE_YPOS_KEY = 1;
+	public final static int SC_INIT_COORDINATE_VALUE = -1;
 
 	// Score Bean settings
 	public final static int SC_BEAN_XPOS_POSSIBLE_AMOUNT = 64;
-	public final static int SC_BEAN_YPOS_POSSIBLE_AMOUNT = 40;
+	public final static int SC_BEAN_YPOS_POSSIBLE_AMOUNT = 35;
 
 	// Snake Setting
 	public final static int SC_INIT_SNAKE_LENGTH = 3;
 	public final static int SC_INIT_SNAKE_HEAD_XPOS = 60;
 	public final static int SC_INIT_SNAKE_HEAD_YPOS = 80;
+	public final static int SC_SNAKE_AVAIL_MAX_XPOS = 1260;
+	public final static int SC_SNAKE_AVAIL_MAX_YPOS = 760;
 	public final static String SC_SNAKE_MOVE_DIRECTION_DEFAULT_FLAG = "Rightward";
 	public final static String SC_SNAKE_MOVE_DIRECTION_DOWN_FLAG = "Downward";
 	public final static String SC_SNAKE_MOVE_DIRECTION_LEFT_FLAG = "Leftward";

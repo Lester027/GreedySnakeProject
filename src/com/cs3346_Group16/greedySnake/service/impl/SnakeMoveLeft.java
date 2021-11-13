@@ -18,7 +18,7 @@ public class SnakeMoveLeft implements SnakeMove {
 				snake.setXCoordinate(i, snake.getXCoordinate(i - 1));
 			}
 			if(snake.getXCoordinate(i) < SConstant.SC_GAMEBODY_BACKGROUND_BEGIN_XPOS) {
-				snake.setXCoordinate(i, SConstant.SC_GAMEBODY_BAKCGOURND_WIDTH);
+				snake.setXCoordinate(i, SConstant.SC_SNAKE_AVAIL_MAX_XPOS);
 			}
 		}
 	}

@@ -17,7 +17,7 @@ public class SnakeMoveDown implements SnakeMove {
 			} else {
 				snake.setYCoordinate(i, snake.getYCoordinate(i - 1));
 			}
-			if(snake.getYCoordinate(i) > SConstant.SC_GAMEBODY_BACKGOURND_BOTTOM_YPOS) {
+			if(snake.getYCoordinate(i) > SConstant.SC_SNAKE_AVAIL_MAX_YPOS) {
 				snake.setYCoordinate(i, SConstant.SC_GAMEBODY_BACKGROUND_BEGIN_YPOS);
 			}
 		}

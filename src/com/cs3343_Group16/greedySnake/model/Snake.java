@@ -3,8 +3,6 @@ package com.cs3343_Group16.greedySnake.model;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.util.ArrayList;
-import java.util.Hashtable;
-
 import com.cs3343_Group16.greedySnake.system.SConstant;
 
 public class Snake extends Game {
@@ -19,16 +17,23 @@ public class Snake extends Game {
 	private int moves = -1;
 	private int length = SConstant.SC_INIT_SNAKE_LENGTH;
 	private String direction = SConstant.SC_SNAKE_MOVE_DIRECTION_DEATH_FLAG;
-	private int[] xCoordinate = new int[750];
-	private int[] yCoordinate = new int[750];
-	private Hashtable<String, Integer> coordinate;
-	private ArrayList<Hashtable<String, Integer>> snakePos;
+	private ArrayList<ArrayList<Integer>> coordinate;
 
 	private Snake() {
-		coordinate = new Hashtable<String, Integer>();
-		snakePos = new ArrayList<Hashtable<String, Integer>>();
-		coordinate.put(SConstant.SC_COORDINATE_KEY_XPOS, -1);
-		coordinate.put(SConstant.SC_COORDINATE_KEY_YPOS, -1);
+		initCoordinate();
+		initSnake();
+	}
+	
+	@SuppressWarnings("unchecked")
+	private void initCoordinate() {
+		this.coordinate = new ArrayList<ArrayList<Integer>>();
+		ArrayList<Integer> temp= new ArrayList<Integer> ();
+		temp.add(SConstant.SC_INIT_COORDINATE_VALUE);
+		temp.add(SConstant.SC_INIT_COORDINATE_VALUE);
+		for (int i = 0; i < SConstant.SC_INIT_MAX_AVAIL_COORDINATE_AMOUNT; i++) {
+			this.coordinate.add((ArrayList<Integer>) temp.clone());
+		}
+		temp.clear();
 	}
 
 	public static Snake getInstance() {
@@ -39,17 +44,14 @@ public class Snake extends Game {
 	}
 
 	public void drawSnake(Graphics snake) {
-		if (moves == -1) {
-			initCoordinate();
-		}
-
 		for (int i = 0; i < length; i++) {
 			if (i == 0) {
 				snake.setColor(Color.DARK_GRAY);
 			} else {
 				snake.setColor(Color.BLACK);
 			}
-			snake.fillRect(xCoordinate[i], yCoordinate[i], SConstant.SC_DEFAULT_NODE_SIZE,
+			snake.fillRect(coordinate.get(i).get(SConstant.SC_COORDINATE_XPOS_KEY),
+					coordinate.get(i).get(SConstant.SC_COORDINATE_YPOS_KEY), SConstant.SC_DEFAULT_NODE_SIZE,
 					SConstant.SC_DEFAULT_NODE_SIZE);
 
 		}
@@ -60,46 +62,57 @@ public class Snake extends Game {
 		score = 0;
 		length = SConstant.SC_INIT_SNAKE_LENGTH;
 
-		initCoordinate();
+		initSnake();
 	}
 
-	private void initCoordinate() {
+	private void initSnake() {
 		int tempXPos = SConstant.SC_INIT_SNAKE_HEAD_XPOS;
-		for(int i = 0; i<SConstant.SC_INIT_SNAKE_LENGTH; i++) {
-			coordinate.replace(SConstant.SC_COORDINATE_KEY_XPOS, tempXPos);
-			coordinate.replace(SConstant.SC_COORDINATE_KEY_YPOS, SConstant.SC_INIT_SNAKE_HEAD_YPOS);
-			snakePos.add(coordinate);
+		int tempYPos = SConstant.SC_INIT_SNAKE_HEAD_YPOS;
+		for (int i = 0; i < SConstant.SC_INIT_SNAKE_LENGTH; i++) {
+			coordinate.get(i).set(SConstant.SC_COORDINATE_XPOS_KEY, tempXPos);
+			coordinate.get(i).set(SConstant.SC_COORDINATE_YPOS_KEY, tempYPos);
 			tempXPos -= SConstant.SC_DEFAULT_NODE_SIZE;
 		}
-		xCoordinate[0] = SConstant.SC_INIT_SNAKE_HEAD_XPOS;
-		xCoordinate[1] = SConstant.SC_INIT_SNAKE_HEAD_XPOS - SConstant.SC_DEFAULT_NODE_SIZE;
-		xCoordinate[2] = SConstant.SC_INIT_SNAKE_HEAD_XPOS - 2 * SConstant.SC_DEFAULT_NODE_SIZE;
-
-		yCoordinate[0] = SConstant.SC_INIT_SNAKE_HEAD_YPOS;
-		yCoordinate[1] = SConstant.SC_INIT_SNAKE_HEAD_YPOS;
-		yCoordinate[2] = SConstant.SC_INIT_SNAKE_HEAD_YPOS;
+//		xCoordinate[0] = SConstant.SC_INIT_SNAKE_HEAD_XPOS;
+//		xCoordinate[1] = SConstant.SC_INIT_SNAKE_HEAD_XPOS - SConstant.SC_DEFAULT_NODE_SIZE;
+//		xCoordinate[2] = SConstant.SC_INIT_SNAKE_HEAD_XPOS - 2 * SConstant.SC_DEFAULT_NODE_SIZE;
+//
+//		yCoordinate[0] = SConstant.SC_INIT_SNAKE_HEAD_YPOS;
+//		yCoordinate[1] = SConstant.SC_INIT_SNAKE_HEAD_YPOS;
+//		yCoordinate[2] = SConstant.SC_INIT_SNAKE_HEAD_YPOS;
 	}
 
 	private void death() {
 		this.direction = SConstant.SC_SNAKE_MOVE_DIRECTION_DEATH_FLAG;
+		initial();
 	}
 
 	public boolean selfDeathDetection() {
-		for (int i = 1; i < length; i++) {
-			if (snakePos.get(i) == snakePos.get(0)) {
-				this.death();
-				return true;
-			}
+		ArrayList<Integer> head = coordinate.get(0);
+		coordinate.remove(0);
+		if (coordinate.contains(head)) {
+			this.death();
+			return true;
 		}
+		coordinate.add(0, head);
 		return false;
+//		for (int i = 1; i < length; i++) {
+//			if (xCoordinate[i] == xCoordinate[0] && yCoordinate[i] == yCoordinate[0]) {
+//				this.death();
+//				return true;
+//			}
+//		}
+//		return false;
 	}
 
 	public int getHeadXPos() {
-		return snakePos.get(0).get(SConstant.SC_COORDINATE_KEY_XPOS);
+		return coordinate.get(0).get(SConstant.SC_COORDINATE_XPOS_KEY);
+//		return xCoordinate[0];
 	}
 
 	public int getHeadYpos() {
-		return snakePos.get(0).get(SConstant.SC_COORDINATE_KEY_YPOS);
+		return coordinate.get(0).get(SConstant.SC_COORDINATE_YPOS_KEY);
+//		return yCoordinate[0];
 	}
 
 	public int getMove() {
@@ -135,19 +148,23 @@ public class Snake extends Game {
 	}
 
 	public int getXCoordinate(int index) {
-		return xCoordinate[index];
+		return coordinate.get(index).get(SConstant.SC_COORDINATE_XPOS_KEY);
+//		return xCoordinate[index];
 	}
 
-	public void setXCoordinate(int index, int xpos) {
-		this.xCoordinate[index] = xpos;
+	public void setXCoordinate(int index, int xPos) {
+//		this.xCoordinate[index] = xpos;
+		this.coordinate.get(index).set(SConstant.SC_COORDINATE_XPOS_KEY, xPos);
 	}
 
 	public int getYCoordinate(int index) {
-		return yCoordinate[index];
+		return coordinate.get(index).get(SConstant.SC_COORDINATE_YPOS_KEY);
+//		return yCoordinate[index];
 	}
 
-	public void setYCoordinate(int index, int ypos) {
-		this.yCoordinate[index] = ypos;
+	public void setYCoordinate(int index, int yPos) {
+//		this.yCoordinate[index] = ypos;
+		this.coordinate.get(index).set(SConstant.SC_COORDINATE_YPOS_KEY, yPos);
 	}
 
 }
