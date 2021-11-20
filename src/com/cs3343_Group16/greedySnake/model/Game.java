@@ -42,7 +42,6 @@ public class Game extends JPanel {
 		background.drawBackground(gameGraphic);
 		
 		if(!SConstant.SC_GAME_MODE_DEFAULT.equals(this.mode)) {
-			prevScore = snake.getScore();
 			if (countTime > 0 && snake.getScore() == prevScore) {
 				bean = ScoreBean.getInstance();
 				countTime--;
@@ -62,6 +61,9 @@ public class Game extends JPanel {
 			if (countTime == 0) {
 				time = 0;
 			}
+			
+			prevScore = snake.getScore();
+			
 			bean.draw(gameGraphic);
 			snake.drawSnake(gameGraphic);
 		}
