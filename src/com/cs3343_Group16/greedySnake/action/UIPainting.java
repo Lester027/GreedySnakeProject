@@ -91,10 +91,10 @@ public class UIPainting extends JPanel implements KeyListener, ActionListener {
 		}
 		if (SConstant.SC_DEFAULT_KEYBOARD_LOCK.equals(keyLock)) {
 			switch (e.getKeyCode()) {
-			case KeyEvent.VK_F1:
+			case KeyEvent.VK_1:
 				game.setMode(SConstant.SC_GAME_MODE_PlAYER);
 				break;
-			case KeyEvent.VK_F2:
+			case KeyEvent.VK_2:
 				game.setMode(SConstant.SC_GAME_MODE_AI);
 				break;
 			case KeyEvent.VK_DOWN:

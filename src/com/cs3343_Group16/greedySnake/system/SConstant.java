@@ -101,8 +101,8 @@ public class SConstant {
 	public final static int SC_GAME_HINT_FONT_SIZE = 50;
 	public final static int SC_GAME_ASSIST_HINT_FONT_SIZE = 20;
 	public final static String SC_GAME_HINT_MODE_CHOOSE = "CHOOSE ONE MODE";
-	public final static String SC_GAME_HINT_MODE_CHOOSE_ASSIST_1 = "Press F1 to choose Player Mode";
-	public final static String SC_GAME_HINT_MODE_CHOOSE_ASSIST_2 = "Press F2 to choose AI self move Mode";
+	public final static String SC_GAME_HINT_MODE_CHOOSE_ASSIST_1 = "Press 1 to choose Player Mode";
+	public final static String SC_GAME_HINT_MODE_CHOOSE_ASSIST_2 = "Press 2 to choose AI self move Mode";
  	public final static String SC_GAME_HINT_GAME_START = "START GAME";
 	public final static String SC_GAME_HINT_START_ASSIST_1 = "Press Any Arrow Keys to Start";
 	public final static String SC_GAME_HINT_GAME_OVER = "GAME OVER";
