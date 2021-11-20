@@ -4,7 +4,6 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
 
-import com.cs3343_Group16.greedySnake.model.Game;
 import com.cs3343_Group16.greedySnake.service.Display;
 import com.cs3343_Group16.greedySnake.system.SConstant;
 

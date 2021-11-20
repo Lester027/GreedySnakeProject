@@ -37,6 +37,11 @@ public class DeathBean extends Bean {
 	public void refreshPos() {
 		super.refreshPos();
 	}
+	
+	@Override
+	public void updateMapStatus() {
+		super.updateMapStatus();
+	}
 
 	@Override
 	public int getBeanXPos() {

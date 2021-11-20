@@ -49,19 +49,26 @@ public class SConstant {
 	public final static int SC_COORDINATE_XPOS_KEY = 0;
 	public final static int SC_COORDINATE_YPOS_KEY = 1;
 	public final static int SC_INIT_COORDINATE_VALUE = -1;
+	
+	// Common Map Setting
+	public final static int SC_MAP_X_AXIS_CAPACITY = 64;
+	public final static int SC_MAP_Y_AXIS_CAPACITY = 35;
+	public final static String SC_MAP_RECORD_NULL = " ";
+	public final static String SC_MAP_RECORD_SNAKE = "snake";
+	public final static String SC_MAP_RECORD_AI_SNAKE = "aiSnake";
+	public final static String SC_MAP_RECORD_BEAN = "bean";
+	public final static String SC_MAP_RECORD_PRESERVED = "preserved";
 
 	// Common Bean settings
-	public final static int SC_BEAN_XPOS_POSSIBLE_AMOUNT = 64;
-	public final static int SC_BEAN_YPOS_POSSIBLE_AMOUNT = 35;
 	public final static int SC_DEFAULT_BEAN_SCORE = 1;
 	public final static int SC_SCORE_BEAN_SCORE = 3;
 	public final static int SC_DEATH_BEAN_SCORE = -5;
-	
-	//Score Bean Settings
+
+	// Advanced Score Bean Settings
 	public final static int SC_SCORE_BEAN_DEFAULT_APPEAR_TIME = 300;
 	public final static int SC_SCORE_BEAN_DEFAULT_DISAPPEAR_TIME = 50;
 
-	// Snake Setting
+	// Common Snake Setting
 	public final static int SC_INIT_SNAKE_LENGTH = 3;
 	public final static int SC_INIT_SNAKE_HEAD_XPOS = 60;
 	public final static int SC_INIT_SNAKE_HEAD_YPOS = 80;
@@ -72,6 +79,14 @@ public class SConstant {
 	public final static String SC_SNAKE_MOVE_DIRECTION_LEFT_FLAG = "Leftward";
 	public final static String SC_SNAKE_MOVE_DIRECTION_UP_FLAG = "Upward";
 	public final static String SC_SNAKE_MOVE_DIRECTION_DEATH_FLAG = " ";
+	
+	// Advanced AI Snake Setting
+	public final static int SC_INIT_AI_SNAKE_HEAD_XPOS = 60;
+	public final static int SC_INIT_AI_SNAKE_HEAD_YPOS = 760;
+	
+	//Advanced Snake Node Setting
+	public final static int SC_SNAKE_NODE_DEFAULT_SCORE_VALUE = 1000000000 + 7;
+	public final static int SC_SNAKE_NODE_DEFAULT_INIT_VALUE = 0;
 
 	// Game setting
 	public final static String SC_GAME_TITLE = "CS3343 Group16 Project Greedy Snake";
@@ -79,14 +94,26 @@ public class SConstant {
 	public final static boolean SC_FOCUS_TRAVERSAL_KEYS_ENABLED = false;
 	public final static String SC_DEFAULT_KEYBOARD_LOCK = "unlocked";
 	public final static String SC_UPDATED_KEYBOARD_LOCK = "locked";
-	public final static int SC_TIME_DELAY = 80;
+	public final static String SC_GAME_MODE_DEFAULT = " "; 
+	public final static String SC_GAME_MODE_PlAYER = "player";
+	public final static String SC_GAME_MODE_AI = "AI";
+	public final static int SC_TIME_DELAY = 1;
 	public final static int SC_GAME_HINT_FONT_SIZE = 50;
 	public final static int SC_GAME_ASSIST_HINT_FONT_SIZE = 20;
-	public final static String SC_GAME_HINT_GAME_START = "START GAME";
+	public final static String SC_GAME_HINT_MODE_CHOOSE = "CHOOSE ONE MODE";
+	public final static String SC_GAME_HINT_MODE_CHOOSE_ASSIST_1 = "Press F1 to choose Player Mode";
+	public final static String SC_GAME_HINT_MODE_CHOOSE_ASSIST_2 = "Press F2 to choose AI self move Mode";
+ 	public final static String SC_GAME_HINT_GAME_START = "START GAME";
 	public final static String SC_GAME_HINT_START_ASSIST_1 = "Press Any Arrow Keys to Start";
 	public final static String SC_GAME_HINT_GAME_OVER = "GAME OVER";
 	public final static String SC_GAME_HINT_RESTART_ASSIST = "Press Space to Restart";
 	public final static String SC_GAME_HINT_START_ASSIST_2 = "Then Press Any Arrow Keys to Move Your Snake";
+	public final static int SC_HINT_GAME_MODE_CHOOSE_BEGIN_XPOS = 350;
+	public final static int SC_HINT_GAME_MODE_CHOOSE_BEGIN_YPOS = 400;
+	public final static int SC_HINT_GAME_MODE_CHOOSE_ASSIST_1_BEGIN_XPOS = 450;
+	public final static int SC_HINT_GAME_MODE_CHOOSE_ASSIST_1_BEGIN_YPOS = 440;
+	public final static int SC_HINT_GAME_MODE_CHOOSE_ASSIST_2_BEGIN_XPOS = 450;
+	public final static int SC_HINT_GAME_MODE_CHOOSE_ASSIST_2_BEGIN_YPOS = 480;
 	public final static int SC_HINT_GAME_START_BEGIN_XPOS = 450;
 	public final static int SC_HINT_GAME_START_BEGIN_YPOS = 400;
 	public final static int SC_HINT_GAME_START_ASSIST_1_BEGIN_XPOS = 470;
