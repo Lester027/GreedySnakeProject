@@ -75,15 +75,13 @@ public class Snake extends Game {
 	}
 
 	public boolean selfDeathDetection() {
-		for (int i = 1; i < this.length; i++) {
-			if (coordinate.get(0).get(SConstant.SC_COORDINATE_XPOS_KEY) == coordinate.get(i)
-					.get(SConstant.SC_COORDINATE_XPOS_KEY)
-					&& coordinate.get(0).get(SConstant.SC_COORDINATE_YPOS_KEY) == coordinate.get(i)
-							.get(SConstant.SC_COORDINATE_YPOS_KEY)) {
-				this.death();
-				return true;
-			}
+		ArrayList<Integer> head = coordinate.get(0);
+		coordinate.remove(0);
+		if (coordinate.contains(head)) {
+			this.death();
+			return true;
 		}
+		coordinate.add(0, head);
 		return false;
 	}
 
