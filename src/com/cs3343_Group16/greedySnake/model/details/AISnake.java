@@ -48,6 +48,9 @@ public class AISnake extends Snake {
 	@Override
 	public void initial() {
 		super.initial();
+		super.setDirection(SConstant.SC_SNAKE_MOVE_DIRECTION_DEFAULT_FLAG);
+		
+		this.initSnake();
 	}
 
 	@Override
