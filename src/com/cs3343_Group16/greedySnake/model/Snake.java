@@ -1,6 +1,7 @@
 package com.cs3343_Group16.greedySnake.model;
 
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -39,6 +40,7 @@ public class Snake extends Game {
 	}
 
 	protected void drawSnake(Graphics snake) {
+		
 		for (int i = 0; i < length; i++) {
 			if (i == 0) {
 				snake.setColor(Color.DARK_GRAY);
@@ -48,8 +50,22 @@ public class Snake extends Game {
 			snake.fillRect(coordinate.get(i).get(SConstant.SC_COORDINATE_XPOS_KEY),
 					coordinate.get(i).get(SConstant.SC_COORDINATE_YPOS_KEY), SConstant.SC_DEFAULT_NODE_SIZE,
 					SConstant.SC_DEFAULT_NODE_SIZE);
-
 		}
+		
+		drawInformation(snake);
+		
+	}
+	
+	protected void drawInformation(Graphics snake) {
+		//score
+		snake.setColor(Color.WHITE);
+		snake.setFont(new Font(SConstant.SC_FONT_THEME, Font.PLAIN, SConstant.SC_DEFAULT_FONT_SIZE));
+		snake.drawString("Scores: " + this.score, SConstant.SC_SCORE_BEGIN_XPOS, SConstant.SC_SCORE_BEGIN_YPOS);
+		
+		//length
+		snake.setColor(Color.WHITE);
+		snake.setFont(new Font(SConstant.SC_FONT_THEME, Font.PLAIN, SConstant.SC_DEFAULT_FONT_SIZE));
+		snake.drawString("Length: " + this.length, SConstant.SC_LENGTH_BEGIN_XPOS, SConstant.SC_LENGTH_BEGIN_YPOS);
 	}
 
 	protected void initial() {

@@ -41,6 +41,8 @@ public class AISnake extends Snake {
 					SConstant.SC_DEFAULT_NODE_SIZE);
 
 		}
+		
+		super.drawInformation(snake);
 	}
 
 	@Override
