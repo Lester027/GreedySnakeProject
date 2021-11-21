@@ -97,7 +97,8 @@ public class SConstant {
 	public final static String SC_GAME_MODE_DEFAULT = " "; 
 	public final static String SC_GAME_MODE_PlAYER = "player";
 	public final static String SC_GAME_MODE_AI = "AI";
-	public final static int SC_TIME_DELAY = 1;
+	public final static int SC_DEFAULT_TIME_DELAY = 1;
+	public final static int SC_PLAYER_TIME_DELAY = 100;
 	public final static int SC_GAME_HINT_FONT_SIZE = 50;
 	public final static int SC_GAME_ASSIST_HINT_FONT_SIZE = 20;
 	public final static String SC_GAME_HINT_MODE_CHOOSE = "CHOOSE ONE MODE";

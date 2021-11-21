@@ -8,7 +8,7 @@ public class UpdateDirectionDown implements UpdateDirection {
 
 	@Override
 	public void update(Snake snake) {
-		if(!SConstant.SC_SNAKE_MOVE_DIRECTION_UP_FLAG.equals(snake.getDirection()) && snake != null) {
+		if(snake != null && !SConstant.SC_SNAKE_MOVE_DIRECTION_UP_FLAG.equals(snake.getDirection())) {
 			snake.setDirection(SConstant.SC_SNAKE_MOVE_DIRECTION_DOWN_FLAG);
 			snake.updateMove();
 		}

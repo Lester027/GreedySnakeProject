@@ -38,7 +38,7 @@ public class UIPainting extends JPanel implements KeyListener, ActionListener {
 		addKeyListener(this);
 		setFocusable(SConstant.SC_FOCUSABLE);
 		setFocusTraversalKeysEnabled(SConstant.SC_FOCUS_TRAVERSAL_KEYS_ENABLED);
-		timer = new Timer(SConstant.SC_TIME_DELAY, this);
+		timer = new Timer(SConstant.SC_DEFAULT_TIME_DELAY, this);
 		timer.start();
 	}
 
@@ -56,11 +56,14 @@ public class UIPainting extends JPanel implements KeyListener, ActionListener {
 		timer.start();
 		if (!SConstant.SC_GAME_MODE_DEFAULT.equals(game.getMode())) {
 			if (SConstant.SC_GAME_MODE_AI.equals(game.getMode())) {
+				timer.setDelay(SConstant.SC_DEFAULT_TIME_DELAY);
 				MapStatement.getInstance().initRecord();
 				game.getSnake().updateMapStatus();
 				game.getBean().updateMapStatus();
 				game.getSnake().setDirection(SnakeSelfAutoMove.thinkAndMove(((AISnake) game.getSnake()), game.getBean(),
 						game.getSnake().getDirection()));
+			}if(SConstant.SC_GAME_MODE_PlAYER.equals(game.getMode())) {
+				timer.setDelay(SConstant.SC_PLAYER_TIME_DELAY);
 			}
 			switch (game.getSnake().getDirection()) {
 			case SConstant.SC_SNAKE_MOVE_DIRECTION_DEFAULT_FLAG:
@@ -76,6 +79,7 @@ public class UIPainting extends JPanel implements KeyListener, ActionListener {
 				new SnakeMoveUp().move(game.getSnake());
 				break;
 			}
+			
 		}
 
 		repaint();
