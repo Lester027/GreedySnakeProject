@@ -21,7 +21,7 @@ public class Snake extends Game {
 	private String direction = SConstant.SC_SNAKE_MOVE_DIRECTION_DEATH_FLAG;
 	private ArrayList<ArrayList<Integer>> coordinate;
 
-	public Snake() {
+	protected Snake() {
 		initCoordinate();
 		initSnake();
 	}
