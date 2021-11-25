@@ -72,7 +72,8 @@ public class Snake extends Game {
 		moves = 0;
 		score = 0;
 		length = SConstant.SC_INIT_SNAKE_LENGTH;
-
+		
+		initCoordinate();
 		initSnake();
 	}
 
