@@ -53,7 +53,7 @@ public class Game extends JPanel {
 				time = 0;
 			}
 
-			if (time >= SConstant.SC_SCORE_BEAN_DEFAULT_APPEAR_TIME) {
+			if (time >= SConstant.SC_SCORE_BEAN_DEFAULT_APPEAR_TIME & snake.getScore() > prevScore) {
 				bean = ScoreBean.getInstance();
 				countTime = SConstant.SC_SCORE_BEAN_DEFAULT_DISAPPEAR_TIME;
 			}
