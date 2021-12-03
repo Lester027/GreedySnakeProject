@@ -29,19 +29,29 @@ public class Game extends JPanel {
 	}
 
 	public void painting(Graphics gameGraphic) {
-		time++;
+		increaseTime();
+		setSnake();
 		background = Background.getInstance();
 		bean = NormalBean.getInstance();
-		if(SConstant.SC_GAME_MODE_PlAYER.equals(this.mode)) {
-			snake = PlayerSnake.getInstance();
-		}
-		else if(SConstant.SC_GAME_MODE_AI.equals(this.mode)) {
-			snake = AISnake.getInstance();
-		}
-
 		background.drawBackground(gameGraphic);
 		
 		if(!SConstant.SC_GAME_MODE_DEFAULT.equals(this.mode)) {
+			generateBean();			
+			bean.draw(gameGraphic);
+			snake.drawSnake(gameGraphic);
+		}
+		
+		}
+
+	public void increaseTime() {
+		time++;
+	}
+		
+	public void setCountTime(int c) {
+		countTime=c;
+	}
+	
+	public void generateBean() {
 			if (countTime > 0 && snake.getScore() == prevScore) {
 				bean = ScoreBean.getInstance();
 				countTime--;
@@ -53,7 +63,7 @@ public class Game extends JPanel {
 				time = 0;
 			}
 
-			if (time >= SConstant.SC_SCORE_BEAN_DEFAULT_APPEAR_TIME & snake.getScore() > prevScore) {
+		if (time >= SConstant.SC_SCORE_BEAN_DEFAULT_APPEAR_TIME && snake.getScore() > prevScore) {
 				bean = ScoreBean.getInstance();
 				countTime = SConstant.SC_SCORE_BEAN_DEFAULT_DISAPPEAR_TIME;
 			}
@@ -63,27 +73,28 @@ public class Game extends JPanel {
 			}
 			
 			prevScore = snake.getScore();
-			
-			bean.draw(gameGraphic);
-			snake.drawSnake(gameGraphic);
 		}
 		
+	public void setSnake() {
+		if(SConstant.SC_GAME_MODE_PlAYER.equals(this.mode)) {
+			snake= PlayerSnake.getInstance();
+		}else if(SConstant.SC_GAME_MODE_AI.equals(this.mode)) {
+			snake= AISnake.getInstance();
+		}
 	}
 
 	public Snake getSnake() {
-		if(SConstant.SC_GAME_MODE_PlAYER.equals(this.mode)) {
-			return PlayerSnake.getInstance();
-		}else if(SConstant.SC_GAME_MODE_AI.equals(this.mode)) {
-			return AISnake.getInstance();
+		if(snake==null) {
+			setSnake();
 		}
-		return null;
+		return snake;
 	}
 
 	public Bean getBean() {
-		if (countTime > 0) {
-			return ScoreBean.getInstance();
-		}
+		if(bean==null) {
 		return NormalBean.getInstance();
+	}
+		return bean;
 	}
 
 	public String getMode() {
@@ -101,12 +112,11 @@ public class Game extends JPanel {
 		this.mode = SConstant.SC_GAME_MODE_DEFAULT;
 	}
 
-	protected boolean isBeanSnakeOverlap(int beanXPos, int beanYPos) {
+	public boolean isBeanSnakeOverlap(int beanXPos, int beanYPos) {
 		if (PlayerSnake.getInstance().selfForeignalItemDetection(beanXPos, beanYPos)
 				|| AISnake.getInstance().selfForeignalItemDetection(beanXPos, beanYPos)) {
 			return true;
 		}
 		return false;
 	}
-
 }

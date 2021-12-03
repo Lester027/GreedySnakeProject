@@ -33,29 +33,6 @@ public class NormalBean extends Bean {
 				SConstant.SC_DEFAULT_NODE_SIZE);
 	}
 
-	@Override
-	public void refreshPos() {
-		super.refreshPos();
-	}
 	
-	@Override
-	public void updateMapStatus() {
-		super.updateMapStatus();
-	}
-
-	@Override
-	public int getBeanXPos() {
-		return super.getBeanXPos();
-	}
-
-	@Override
-	public int getBeanYPos() {
-		return super.getBeanYPos();
-	}
-
-	@Override
-	public int getBeanScore() {
-		return super.getBeanScore();
-	}
 
 }

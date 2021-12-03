@@ -12,19 +12,19 @@ import javax.swing.Timer;
 import com.cs3343_Group16.greedySnake.model.Game;
 import com.cs3343_Group16.greedySnake.model.details.AISnake;
 import com.cs3343_Group16.greedySnake.service.SnakeMove;
-import com.cs3343_Group16.greedySnake.service.impl.Press1KeyCommand;
-import com.cs3343_Group16.greedySnake.service.impl.Press2KeyCommand;
-import com.cs3343_Group16.greedySnake.service.impl.PressDownKeyCommand;
-import com.cs3343_Group16.greedySnake.service.impl.PressLeftKeyCommand;
-import com.cs3343_Group16.greedySnake.service.impl.PressRightKeyCommand;
-import com.cs3343_Group16.greedySnake.service.impl.PressUpKeyCommand;
-import com.cs3343_Group16.greedySnake.service.impl.SnakeMoveDown;
-import com.cs3343_Group16.greedySnake.service.impl.SnakeMoveLeft;
-import com.cs3343_Group16.greedySnake.service.impl.SnakeMoveRight;
-import com.cs3343_Group16.greedySnake.service.impl.SnakeMoveUp;
 import com.cs3343_Group16.greedySnake.system.MapStatement;
 import com.cs3343_Group16.greedySnake.system.SConstant;
 import com.cs3343_Group16.greedySnake.util.GameMonitor;
+import com.cs3346_Group16.greedySnake.service.impl.SnakeMoveDown;
+import com.cs3346_Group16.greedySnake.service.impl.SnakeMoveLeft;
+import com.cs3346_Group16.greedySnake.service.impl.SnakeMoveRight;
+import com.cs3346_Group16.greedySnake.service.impl.SnakeMoveUp;
+import com.cs3346_Group16.greedySnake.service.impl.Press1KeyCommand;
+import com.cs3346_Group16.greedySnake.service.impl.Press2KeyCommand;
+import com.cs3346_Group16.greedySnake.service.impl.PressDownKeyCommand;
+import com.cs3346_Group16.greedySnake.service.impl.PressLeftKeyCommand;
+import com.cs3346_Group16.greedySnake.service.impl.PressRightKeyCommand;
+import com.cs3346_Group16.greedySnake.service.impl.PressUpKeyCommand;
 
 public class UIPainting extends JPanel implements KeyListener, ActionListener {
 
@@ -39,6 +39,7 @@ public class UIPainting extends JPanel implements KeyListener, ActionListener {
 	private SnakeMove snakemove;
 
 	public UIPainting() {
+	
 		addKeyListener(this);
 		setFocusable(SConstant.SC_FOCUSABLE);
 		setFocusTraversalKeysEnabled(SConstant.SC_FOCUS_TRAVERSAL_KEYS_ENABLED);

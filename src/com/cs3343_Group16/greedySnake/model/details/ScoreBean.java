@@ -33,28 +33,5 @@ public class ScoreBean extends Bean {
 		bean.fillRect(super.getBeanXPos(), super.getBeanYPos(), SConstant.SC_DEFAULT_NODE_SIZE, SConstant.SC_DEFAULT_NODE_SIZE);
 	}
 
-	@Override
-	public void refreshPos() {
-		super.refreshPos();
-	}
 	
-	@Override
-	public void updateMapStatus() {
-		super.updateMapStatus();
-	}
-
-	@Override
-	public int getBeanXPos() {
-		return super.getBeanXPos();
-	}
-
-	@Override
-	public int getBeanYPos() {
-		return super.getBeanYPos();
-	}
-
-	@Override
-	public int getBeanScore() {
-		return super.getBeanScore();
-	}
 }

@@ -1,7 +1,6 @@
 package com.cs3343_Group16.greedySnake.system;
 
-import com.cs3343_Group16.greedySnake.model.Bean;
-import com.cs3343_Group16.greedySnake.model.Snake;
+import com.cs3343_Group16.greedySnake.model.Game;
 import com.cs3343_Group16.greedySnake.model.details.AISnake;
 import com.cs3343_Group16.greedySnake.model.details.DeathBean;
 import com.cs3343_Group16.greedySnake.model.details.NormalBean;
@@ -32,15 +31,14 @@ public class MapStatement {
 		}
 	}
 
-	public void updateStatus(Object obj, int xPos, int yPos) {
+	public void updateStatus(Game obj, int xPos, int yPos) {
 		int xIdx = (xPos - SConstant.SC_GAMEBODY_BACKGROUND_BEGIN_XPOS) / SConstant.SC_DEFAULT_NODE_SIZE;
 		int yIdx = (yPos - SConstant.SC_GAMEBODY_BACKGROUND_BEGIN_YPOS) / SConstant.SC_DEFAULT_NODE_SIZE;
-		if (obj.getClass() == Snake.class || obj.getClass() == PlayerSnake.class) {
+		if (obj.getClass() == PlayerSnake.class) {
 			records[xIdx][yIdx] = SConstant.SC_MAP_RECORD_SNAKE;
 		} else if (obj.getClass() == AISnake.class) {
 			records[xIdx][yIdx] = SConstant.SC_MAP_RECORD_AI_SNAKE;
-		} else if (obj.getClass() == Bean.class || obj.getClass() == NormalBean.class
-				|| obj.getClass() == ScoreBean.class || obj.getClass() == DeathBean.class) {
+		} else if (obj.getClass() == NormalBean.class|| obj.getClass() == ScoreBean.class || obj.getClass() == DeathBean.class) {
 			records[xIdx][yIdx] = SConstant.SC_MAP_RECORD_BEAN;
 		}
 	}

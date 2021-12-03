@@ -68,7 +68,7 @@ public class Snake extends Game {
 		snake.drawString("Length: " + this.length, SConstant.SC_LENGTH_BEGIN_XPOS, SConstant.SC_LENGTH_BEGIN_YPOS);
 	}
 
-	protected void initial() {
+	public void initial() {
 		moves = 0;
 		score = 0;
 		length = SConstant.SC_INIT_SNAKE_LENGTH;
@@ -102,7 +102,7 @@ public class Snake extends Game {
 		return false;
 	}
 
-	protected boolean selfForeignalItemDetection(int fiXPos, int fiYPos) {
+	public boolean selfForeignalItemDetection(int fiXPos, int fiYPos) {
 		if (coordinate.contains(new ArrayList<Integer>(Arrays.asList(fiXPos, fiYPos)))) {
 			return true;
 		}
@@ -132,7 +132,7 @@ public class Snake extends Game {
 		moves++;
 	}
 
-	protected int getScore() {
+	public int getScore() {
 		return score;
 	}
 

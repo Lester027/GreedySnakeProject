@@ -3,10 +3,10 @@ package com.cs3343_Group16.greedySnake.util;
 import java.awt.Graphics;
 
 import com.cs3343_Group16.greedySnake.model.Game;
+import com.cs3343_Group16.greedySnake.service.impl.DisplayGameModeChoose;
+import com.cs3343_Group16.greedySnake.service.impl.DisplayGameOver;
+import com.cs3343_Group16.greedySnake.service.impl.DisplayGameStart;
 import com.cs3343_Group16.greedySnake.system.SConstant;
-import com.cs3346_Group16.greedySnake.service.impl.DisplayGameModeChoose;
-import com.cs3346_Group16.greedySnake.service.impl.DisplayGameOver;
-import com.cs3346_Group16.greedySnake.service.impl.DisplayGameStart;
 
 public class GameMonitor {
 	
@@ -23,10 +23,12 @@ public class GameMonitor {
 		return false;
 	}
 	
-	public static void GameStartDetection(Game game, Graphics graphic) {
+	public static boolean GameStartDetection(Game game, Graphics graphic) {
 		if(game.getSnake().getMove() == -1) {
 			new DisplayGameStart().display(graphic);
+			return false;
 		}
+		return true;
 	}
 	
 	public static boolean DeathDetection(Game game, Graphics graphic) {

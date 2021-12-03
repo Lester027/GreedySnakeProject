@@ -94,6 +94,8 @@ public class SConstant {
 	public final static boolean SC_FOCUS_TRAVERSAL_KEYS_ENABLED = false;
 	public final static String SC_DEFAULT_KEYBOARD_LOCK = "unlocked";
 	public final static String SC_UPDATED_KEYBOARD_LOCK = "locked";
+	public final static int SC_UPDATED_KEYBOARD_LOCK_FLAG = 10000;
+	public final static int SC_NO_VALID_KEYPRESS_FLAG= 11111;
 	public final static String SC_GAME_MODE_DEFAULT = " "; 
 	public final static String SC_GAME_MODE_PlAYER = "player";
 	public final static String SC_GAME_MODE_AI = "AI";

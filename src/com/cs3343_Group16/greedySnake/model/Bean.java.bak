@@ -49,15 +49,7 @@ public abstract class Bean extends Game {
 		return beanScore;
 	}
 
-	public void setBeanScore(int beanScore) {
+	protected void setBeanScore(int beanScore) {
 		this.beanScore = beanScore;
-	}
-	
-	public void setBeanXPos(int x) {
-		beanXPos=x;
-	}
-	
-	public void setBeanYPos(int y) {
-		beanYPos=y;
 	}
 }
