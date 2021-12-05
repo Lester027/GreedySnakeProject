@@ -20,13 +20,11 @@ public class TestPlayerSnake {
 	@BeforeEach
 	void setUp() throws Exception {
 		PlayerSnake.getInstance().initial();
-		PlayerSnake.getInstance().setDirection(SConstant.SC_SNAKE_MOVE_DIRECTION_DEFAULT_FLAG);
 	}
 	
 	@AfterEach
 	public void tearDown() throws Exception {
 	    PlayerSnake.getInstance().initial();
-	    PlayerSnake.getInstance().setDirection(SConstant.SC_SNAKE_MOVE_DIRECTION_DEFAULT_FLAG);
 	}
 	
 	@Order(1)

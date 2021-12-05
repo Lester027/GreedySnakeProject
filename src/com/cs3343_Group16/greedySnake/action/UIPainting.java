@@ -156,6 +156,9 @@ public class UIPainting extends JPanel implements KeyListener, ActionListener {
 			
 	}
 
+	public int getTimeDelay() {
+		return timer.getDelay();
+	}
 
 	public String getKeyLock() {
 		return keyLock;

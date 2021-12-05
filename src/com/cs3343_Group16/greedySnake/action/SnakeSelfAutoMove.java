@@ -75,9 +75,7 @@ public class SnakeSelfAutoMove {
 				prevTailXPos = dummySnake.get(dummyLength - 1).get(SConstant.SC_COORDINATE_XPOS_KEY);
 				prevTailYPos = dummySnake.get(dummyLength - 1).get(SConstant.SC_COORDINATE_YPOS_KEY);
 				setSnakeMove(dummyDirection);
-				if(snakemove!=null) {
 					snakemove.dummyMove(dummySnake, dummyLength);
-				}
 			}
 
 			initVirtualState();

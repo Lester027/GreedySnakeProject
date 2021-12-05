@@ -19,11 +19,6 @@ class TestSnakeMoveLeft {
 	@BeforeEach
 	void setUp() throws Exception {
 	}
-
-	@Test
-	void test() {
-		fail("Not yet implemented");
-	}
 	
 	//Test case that snake head moves 1 unit (25 pixels) towards left.
 	@Test
@@ -54,7 +49,6 @@ class TestSnakeMoveLeft {
 		int dummyLength = snake.getLength();
 		ArrayList<ArrayList<Integer>> result = move.dummyMove(dummySnake, dummyLength);
 		int result_XPos=result.get(0).get(0);
-		System.out.print(result_XPos);
 		assertEquals(SConstant.SC_SNAKE_AVAIL_MAX_XPOS, result_XPos);
 	}
 	

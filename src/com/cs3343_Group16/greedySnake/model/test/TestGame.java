@@ -16,13 +16,17 @@ public class TestGame {
 	@BeforeEach
 	void setUp() throws Exception {
 		AISnake.getInstance().initial();
+		AISnake.getInstance().setDirection(SConstant.SC_SNAKE_MOVE_DIRECTION_DEFAULT_FLAG);
 		PlayerSnake.getInstance().initial();
+		PlayerSnake.getInstance().setDirection(SConstant.SC_SNAKE_MOVE_DIRECTION_DEFAULT_FLAG);
 	}
 	
 	@AfterEach
 	public void tearDown() throws Exception {
-	    AISnake.getInstance().initial();
-	    PlayerSnake.getInstance().initial();
+		AISnake.getInstance().initial();
+		AISnake.getInstance().setDirection(SConstant.SC_SNAKE_MOVE_DIRECTION_DEFAULT_FLAG);
+		PlayerSnake.getInstance().initial();
+		PlayerSnake.getInstance().setDirection(SConstant.SC_SNAKE_MOVE_DIRECTION_DEFAULT_FLAG);
 	}
 	
 	@Test

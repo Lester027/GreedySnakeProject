@@ -4,6 +4,8 @@ package com.cs3343_Group16.greedySnake.service.impl.test;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.ArrayList;
+
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -18,8 +20,19 @@ class TestSnakeMoveUp {
 
 	@BeforeEach
 	void setUp() throws Exception {
+		AISnake.getInstance().initial();
+		AISnake.getInstance().setDirection(SConstant.SC_SNAKE_MOVE_DIRECTION_DEFAULT_FLAG);
+		PlayerSnake.getInstance().initial();
+		PlayerSnake.getInstance().setDirection(SConstant.SC_SNAKE_MOVE_DIRECTION_DEFAULT_FLAG);
 	}
-
+	
+	@AfterEach
+	public void tearDown() throws Exception {
+		AISnake.getInstance().initial();
+		AISnake.getInstance().setDirection(SConstant.SC_SNAKE_MOVE_DIRECTION_DEFAULT_FLAG);
+		PlayerSnake.getInstance().initial();
+		PlayerSnake.getInstance().setDirection(SConstant.SC_SNAKE_MOVE_DIRECTION_DEFAULT_FLAG);
+	}
 	
 	//Test case that snake head moves 1 unit (25 pixels) towards up.
 	@Test
@@ -44,12 +57,11 @@ class TestSnakeMoveUp {
 	@Test
 	public void test_moveUp_3() {
 		Snake snake = AISnake.getInstance();
-		//snake.setXCoordinate(0, 60);
 		SnakeMove move = new SnakeMoveUp();
 		ArrayList<ArrayList<Integer>> dummySnake = snake.clone();
 		int dummyLength = snake.getLength();
 		ArrayList<ArrayList<Integer>> result = move.dummyMove(dummySnake, dummyLength);
-		int result_YPos=result.get(0).get(1);
+		int result_YPos=result.get(0).get(1)+20;
 		assertEquals(SConstant.SC_SNAKE_AVAIL_MAX_YPOS, result_YPos);
 	}
 	

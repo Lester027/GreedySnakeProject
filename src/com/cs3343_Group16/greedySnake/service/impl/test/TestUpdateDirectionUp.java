@@ -2,14 +2,35 @@ package com.cs3343_Group16.greedySnake.service.impl.test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import com.cs3343_Group16.greedySnake.model.Snake;
+import com.cs3343_Group16.greedySnake.model.details.AISnake;
 import com.cs3343_Group16.greedySnake.model.details.PlayerSnake;
 import com.cs3343_Group16.greedySnake.service.UpdateDirection;
 import com.cs3343_Group16.greedySnake.service.impl.UpdateDirectionUp;
+import com.cs3343_Group16.greedySnake.system.SConstant;
 
 class TestUpdateDirectionUp {
+	
+	@BeforeEach
+	void setUp() throws Exception {
+		AISnake.getInstance().initial();
+		AISnake.getInstance().setDirection(SConstant.SC_SNAKE_MOVE_DIRECTION_DEFAULT_FLAG);
+		PlayerSnake.getInstance().initial();
+		PlayerSnake.getInstance().setDirection(SConstant.SC_SNAKE_MOVE_DIRECTION_DEFAULT_FLAG);
+	}
+	
+	@AfterEach
+	public void tearDown() throws Exception {
+		AISnake.getInstance().initial();
+		AISnake.getInstance().setDirection(SConstant.SC_SNAKE_MOVE_DIRECTION_DEFAULT_FLAG);
+		PlayerSnake.getInstance().initial();
+		PlayerSnake.getInstance().setDirection(SConstant.SC_SNAKE_MOVE_DIRECTION_DEFAULT_FLAG);
+	}
+	
 	//Unit test
 	@Test
 	void test_updateMoveUp_1() {

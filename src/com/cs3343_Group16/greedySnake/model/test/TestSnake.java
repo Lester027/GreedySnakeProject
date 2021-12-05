@@ -21,34 +21,21 @@ public class TestSnake {
 	
 	@BeforeEach
 	void setUp() throws Exception {
-		 AISnake.getInstance().initial();
-		 PlayerSnake.getInstance().initial();
+		AISnake.getInstance().initial();
+		AISnake.getInstance().setDirection(SConstant.SC_SNAKE_MOVE_DIRECTION_DEFAULT_FLAG);
+		PlayerSnake.getInstance().initial();
+		PlayerSnake.getInstance().setDirection(SConstant.SC_SNAKE_MOVE_DIRECTION_DEFAULT_FLAG);
+		MapStatement.getInstance().initRecord();
 	}
 	
 	@AfterEach
 	public void tearDown() throws Exception {
-	    AISnake.getInstance().initial();
-	    PlayerSnake.getInstance().initial();
+		AISnake.getInstance().initial();
+		AISnake.getInstance().setDirection(SConstant.SC_SNAKE_MOVE_DIRECTION_DEFAULT_FLAG);
+		PlayerSnake.getInstance().initial();
+		PlayerSnake.getInstance().setDirection(SConstant.SC_SNAKE_MOVE_DIRECTION_DEFAULT_FLAG);
+		MapStatement.getInstance().initRecord();
 	}
-	
-//	@Order(1)
-//	@Test
-//	public void testInitialization(){
-//		PlayerSnake psnake=PlayerSnake.getInstance();//Use PlayerSnake to test Snake initialization because PlayerSnake inherit the constructor of Snake
-//		
-//		//head
-//		assertEquals(SConstant.SC_INIT_SNAKE_HEAD_XPOS,psnake.getHeadXPos());
-//		assertEquals(SConstant.SC_INIT_SNAKE_HEAD_YPOS,psnake.getHeadYPos());
-//		//body
-//		int xpos=SConstant.SC_INIT_SNAKE_HEAD_XPOS-SConstant.SC_DEFAULT_NODE_SIZE;
-//		for(int i = 1; i < SConstant.SC_INIT_SNAKE_LENGTH; i++) {
-//			assertEquals(xpos,psnake.getXCoordinate(i));
-//			assertEquals(SConstant.SC_INIT_SNAKE_HEAD_YPOS,psnake.getYCoordinate(i));
-//			xpos -= SConstant.SC_DEFAULT_NODE_SIZE;
-//		}
-//		
-//		
-//	}
 	
 	@Order(2)
 	@Test

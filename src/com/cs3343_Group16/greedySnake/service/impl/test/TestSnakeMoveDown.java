@@ -4,6 +4,8 @@ package com.cs3343_Group16.greedySnake.service.impl.test;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.ArrayList;
+
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -18,13 +20,19 @@ class TestSnakeMoveDown {
 
 	@BeforeEach
 	void setUp() throws Exception {
-	}
-
-	@Test
-	void test() {
-		fail("Not yet implemented");
+		AISnake.getInstance().initial();
+		AISnake.getInstance().setDirection(SConstant.SC_SNAKE_MOVE_DIRECTION_DEFAULT_FLAG);
+		PlayerSnake.getInstance().initial();
+		PlayerSnake.getInstance().setDirection(SConstant.SC_SNAKE_MOVE_DIRECTION_DEFAULT_FLAG);
 	}
 	
+	@AfterEach
+	public void tearDown() throws Exception {
+		AISnake.getInstance().initial();
+		AISnake.getInstance().setDirection(SConstant.SC_SNAKE_MOVE_DIRECTION_DEFAULT_FLAG);
+		PlayerSnake.getInstance().initial();
+		PlayerSnake.getInstance().setDirection(SConstant.SC_SNAKE_MOVE_DIRECTION_DEFAULT_FLAG);
+	}
 	//Test case that snake head moves 1 unit (25 pixels) towards down.
 	@Test
 	public void test_moveDown_1() {
