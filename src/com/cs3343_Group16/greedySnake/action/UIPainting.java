@@ -98,7 +98,7 @@ public class UIPainting extends JPanel implements KeyListener, ActionListener {
 				game.getSnake().setDirection(SnakeSelfAutoMove.thinkAndMove(((AISnake) game.getSnake()), game.getBean(),
 						game.getSnake().getDirection()));
 			}if(SConstant.SC_GAME_MODE_PlAYER.equals(game.getMode())) {
-				timer.setDelay(SConstant.SC_PLAYER_TIME_DELAY);
+				setPlayerSpeedByScore(game);
 			}
 			
 			setSnakemove(game.getSnake().getDirection());
@@ -108,6 +108,16 @@ public class UIPainting extends JPanel implements KeyListener, ActionListener {
 		}
 
 		repaint();
+	}
+	
+	public void setPlayerSpeedByScore(Game game) {
+		if(game.getSnake().getScore() == 0) {
+			timer.setDelay(SConstant.SC_PLAYER_TIME_DELAY);
+		}else {
+			if(game.getSnake().getScore() % 300 == 0) {
+				timer.setDelay(timer.getDelay() - 30);
+			}
+		}
 	}
 
 	@Override
